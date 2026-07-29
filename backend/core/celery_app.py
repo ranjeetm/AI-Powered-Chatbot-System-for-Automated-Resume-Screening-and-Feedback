@@ -19,15 +19,34 @@ REDIS_URL = get_env_var(
     "redis://localhost:6379/0"
 )
 
+# Automatically add ssl_cert_reqs=none for rediss:// URLs
+if REDIS_URL.startswith("rediss://") and "ssl_cert_reqs" not in REDIS_URL:
+    if "?" in REDIS_URL:
+        REDIS_URL += "&ssl_cert_reqs=none"
+    else:
+        REDIS_URL += "?ssl_cert_reqs=none"
+
 CELERY_BROKER_URL = get_env_var(
     "CELERY_BROKER_URL",
     REDIS_URL
 )
 
+if CELERY_BROKER_URL.startswith("rediss://") and "ssl_cert_reqs" not in CELERY_BROKER_URL:
+    if "?" in CELERY_BROKER_URL:
+        CELERY_BROKER_URL += "&ssl_cert_reqs=none"
+    else:
+        CELERY_BROKER_URL += "?ssl_cert_reqs=none"
+
 CELERY_RESULT_BACKEND = get_env_var(
     "CELERY_RESULT_BACKEND",
     REDIS_URL
 )
+
+if CELERY_RESULT_BACKEND.startswith("rediss://") and "ssl_cert_reqs" not in CELERY_RESULT_BACKEND:
+    if "?" in CELERY_RESULT_BACKEND:
+        CELERY_RESULT_BACKEND += "&ssl_cert_reqs=none"
+    else:
+        CELERY_RESULT_BACKEND += "?ssl_cert_reqs=none"
 
 
 celery_app = Celery(

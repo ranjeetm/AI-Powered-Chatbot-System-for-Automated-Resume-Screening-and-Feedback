@@ -48,31 +48,34 @@ app = FastAPI(
     title="AI Resume Screening API"
 )
 
+import os
+
 # --------------------------------
-# CORS
+# CORS CONFIGURATION
 # --------------------------------
 
-app.add_middleware(
+allowed_origins_raw = os.getenv("ALLOWED_ORIGINS", "")
+allowed_origins = [origin.strip() for origin in allowed_origins_raw.split(",") if origin.strip()]
 
-    CORSMiddleware,
-
-    allow_origins=[
-
+if not allowed_origins:
+    allowed_origins = [
         "http://localhost:3000",
         "http://127.0.0.1:3000",
-
         "http://localhost:3001",
         "http://127.0.0.1:3001"
-    ],
+    ]
 
-    allow_origin_regex=(
-        r"http://(localhost|127\.0\.0\.1):[0-9]+"
-    ),
+# If '*' (all origins) is explicitly requested, we can use it
+# Note: allow_credentials=True cannot be used with '*' in some configurations,
+# but we support it in case wildcard is requested.
+is_wildcard = "*" in allowed_origins
 
-    allow_credentials=True,
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=allowed_origins,
+    allow_origin_regex=None if is_wildcard else r"http://(localhost|127\.0\.0\.1):[0-9]+",
+    allow_credentials=not is_wildcard,
     allow_methods=["*"],
-
     allow_headers=["*"]
 )
 

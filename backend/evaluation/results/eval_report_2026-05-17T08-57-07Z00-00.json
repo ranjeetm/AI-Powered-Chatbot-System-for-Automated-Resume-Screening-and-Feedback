@@ -1,0 +1,43 @@
+{
+  "timestamp": "2026-05-17T08:57:07+00:00",
+  "summary": {
+    "total": 25,
+    "passed": 25,
+    "failed": 0,
+    "skipped": 0,
+    "pass_rate": 1.0
+  },
+  "by_module": {
+    "test_api_latency": {
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    "test_copilot": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0
+    },
+    "test_extraction": {
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0
+    },
+    "test_jd_matching": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0
+    },
+    "test_pipeline_reliability": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0
+    },
+    "test_ranking": {
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "pytest_exit_code": 0
+}

@@ -1,0 +1,426 @@
+{
+  "ranking_cases": [
+    {
+      "id": "case_001",
+      "job_description": "We are hiring a senior Python backend engineer to design reliable APIs for a high-volume recruiting platform. The role requires 6+ years of backend experience with Python, FastAPI, PostgreSQL, Redis, Docker, REST API design, performance tuning, and production monitoring. The engineer will own service architecture, database schema design, async job processing, code reviews, and deployment readiness while mentoring teammates and improving reliability across candidate ranking workflows.",
+      "candidates": [
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Alice Chen",
+            "skills": ["Python", "FastAPI", "PostgreSQL", "Docker", "Redis"],
+            "experience_years": 7,
+            "job_titles": ["Senior Backend Engineer", "Software Engineer"],
+            "degrees": ["B.Sc. Computer Science"],
+            "resume_text": "Alice Chen is a Senior Backend Engineer with 7 years of experience building Python services for SaaS platforms. She has led FastAPI API design, PostgreSQL schema optimization, Redis caching, Docker deployments, and background job processing for high-volume recruiting and analytics systems. Alice mentors engineers, writes production runbooks, reviews architecture proposals, and improves service reliability through tracing, query tuning, and automated tests. Her recent work reduced API latency by 35 percent while supporting millions of candidate search requests. She holds a B.Sc. Computer Science and enjoys building clean, observable backend systems."
+          },
+          "relevance": 3
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Ben Ortiz",
+            "skills": ["Python", "Django", "PostgreSQL", "AWS", "Docker"],
+            "experience_years": 6,
+            "job_titles": ["Backend Developer", "Python Developer"],
+            "degrees": ["B.Tech Information Technology"],
+            "resume_text": "Ben Ortiz is a backend developer with 6 years of Python experience across Django, PostgreSQL, AWS, and Docker. He has shipped REST APIs for customer support systems, improved SQL query performance, and supported production releases. Ben has exposure to FastAPI through internal tools and is comfortable with Linux, monitoring dashboards, and API testing. His strongest work has been in Python service development and database-backed workflow automation for mid-sized business applications."
+          },
+          "relevance": 2
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Clara Singh",
+            "skills": ["Python", "Flask", "MySQL", "Docker", "REST API"],
+            "experience_years": 5,
+            "job_titles": ["Software Engineer", "Backend Developer"],
+            "degrees": ["B.E Computer Science"],
+            "resume_text": "Clara Singh has 5 years of software engineering experience focused on Python, Flask, MySQL, Docker, and REST API development. She maintains internal inventory services, writes integration tests, and supports containerized deployments. Clara is effective with backend debugging and database migrations, though her PostgreSQL and Redis exposure is limited. She is ready for a senior backend role with some mentoring on larger distributed systems and production architecture ownership."
+          },
+          "relevance": 2
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "David Kim",
+            "skills": ["Java", "Spring", "MySQL", "Kubernetes", "AWS"],
+            "experience_years": 8,
+            "job_titles": ["Java Developer", "Software Engineer"],
+            "degrees": ["M.Tech Software Engineering"],
+            "resume_text": "David Kim is an experienced Java developer with 8 years of Spring, MySQL, Kubernetes, and AWS delivery experience. He has built enterprise services for billing and identity systems and understands API lifecycle management. David has strong backend fundamentals, but his direct Python and FastAPI experience is minimal. He could contribute to architecture discussions and cloud operations, yet would need ramp-up time on the Python stack used by the hiring team."
+          },
+          "relevance": 1
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Eva Martin",
+            "skills": ["Recruitment", "Onboarding", "Employee Relations", "Communication"],
+            "experience_years": 9,
+            "job_titles": ["HR Manager", "Recruiter"],
+            "degrees": ["MBA"],
+            "resume_text": "Eva Martin is an HR manager with 9 years of experience in recruitment, onboarding, employee relations, policy communication, and leadership coaching. She has managed hiring campaigns and improved employee engagement metrics for regional teams. Eva is not a software engineer and does not have Python, API, database, or container experience. Her strengths are people operations, stakeholder communication, and talent acquisition program design."
+          },
+          "relevance": 0
+        }
+      ],
+      "copilot_queries": [
+        {
+          "query": "Who has the most Python experience?",
+          "expected_candidate_names": ["Alice Chen"]
+        }
+      ]
+    },
+    {
+      "id": "case_002",
+      "job_description": "A product analytics team needs a data scientist with 4+ years of experience turning messy business data into models and decisions. The role requires Python, SQL, pandas, NumPy, scikit-learn, TensorFlow, machine learning, experiment analysis, and dashboard communication. This person will build churn models, evaluate model performance, explain results to stakeholders, partner with data engineering, and document reproducible notebooks that support measurable product growth.",
+      "candidates": [
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Jordan Smith",
+            "skills": ["Python", "SQL", "Pandas", "NumPy", "TensorFlow", "Machine Learning"],
+            "experience_years": 5,
+            "job_titles": ["Data Scientist", "ML Engineer"],
+            "degrees": ["M.Sc. Data Science"],
+            "resume_text": "Jordan Smith is a Data Scientist with 5 years of experience building machine learning models for subscription products. Jordan uses Python, SQL, pandas, NumPy, scikit-learn, TensorFlow, and Tableau to analyze churn, customer lifetime value, and product experimentation. In recent work, Jordan built a churn model that improved retention targeting and created reproducible notebooks for stakeholders. Jordan holds an M.Sc. Data Science and has partnered closely with data engineering and product managers."
+          },
+          "relevance": 3
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Maya Patel",
+            "skills": ["Python", "SQL", "Pandas", "Scikit-Learn", "Tableau"],
+            "experience_years": 4,
+            "job_titles": ["Data Analyst", "Data Scientist"],
+            "degrees": ["B.Sc. Statistics"],
+            "resume_text": "Maya Patel has 4 years of analytics and data science experience using Python, SQL, pandas, scikit-learn, and Tableau. She has produced customer segmentation analysis, regression models, and dashboards for product teams. Maya communicates clearly with stakeholders and documents her notebooks well. She has limited TensorFlow experience, but she is strong in model evaluation, feature analysis, and translating business questions into practical data workflows."
+          },
+          "relevance": 2
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Noah Williams",
+            "skills": ["Python", "PyTorch", "Deep Learning", "NLP", "SQL"],
+            "experience_years": 3,
+            "job_titles": ["Machine Learning Engineer", "ML Engineer"],
+            "degrees": ["M.Tech Artificial Intelligence"],
+            "resume_text": "Noah Williams is a machine learning engineer with 3 years of Python, PyTorch, deep learning, NLP, and SQL experience. He has trained classification models, served inference APIs, and analyzed model performance. Noah is technically strong and could support the modeling side of the role, although his product analytics, experiment design, and stakeholder dashboard experience are still developing."
+          },
+          "relevance": 2
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Olivia Brown",
+            "skills": ["SQL", "Power BI", "Excel", "Stakeholder Management"],
+            "experience_years": 6,
+            "job_titles": ["Data Analyst"],
+            "degrees": ["B.Sc. Information Systems"],
+            "resume_text": "Olivia Brown is a data analyst with 6 years of SQL, Excel, Power BI, and stakeholder reporting experience. She builds weekly product dashboards, investigates funnel changes, and helps business teams understand operational metrics. Olivia does not regularly build machine learning models and has only basic Python exposure, so she partially fits the analytics communication needs but not the modeling requirements."
+          },
+          "relevance": 1
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Peter Novak",
+            "skills": ["Docker", "Kubernetes", "Terraform", "AWS", "Linux"],
+            "experience_years": 7,
+            "job_titles": ["DevOps Engineer", "Cloud Engineer"],
+            "degrees": ["B.Tech Computer Engineering"],
+            "resume_text": "Peter Novak is a DevOps engineer with 7 years of AWS, Docker, Kubernetes, Terraform, and Linux experience. He builds deployment pipelines, improves infrastructure reliability, and manages production observability. Peter is not focused on data science, product analytics, machine learning, or TensorFlow model development. His profile is valuable for platform operations but not relevant for this data scientist role."
+          },
+          "relevance": 0
+        }
+      ],
+      "copilot_queries": [
+        {
+          "query": "Which candidate is strongest for TensorFlow and churn modeling?",
+          "expected_candidate_names": ["Jordan Smith"]
+        }
+      ]
+    },
+    {
+      "id": "case_003",
+      "job_description": "We need a frontend engineer to build accessible, responsive recruiter workflows in React. The ideal candidate has 4+ years using JavaScript, TypeScript, React, HTML, CSS, REST API integration, component testing, and performance debugging. This role partners with product design to deliver candidate review screens, job dashboards, filters, loading states, and polished user interactions while maintaining clean state management and reusable UI components.",
+      "candidates": [
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Sophia Lee",
+            "skills": ["React", "TypeScript", "JavaScript", "HTML", "CSS"],
+            "experience_years": 5,
+            "job_titles": ["Frontend Engineer", "Software Engineer"],
+            "degrees": ["B.Sc. Computer Science"],
+            "resume_text": "Sophia Lee is a frontend engineer with 5 years of experience building React and TypeScript applications for workflow-heavy SaaS products. She creates accessible forms, responsive dashboards, reusable components, API integrations, and polished loading and error states. Sophia has worked closely with product design on recruiter dashboards and candidate review screens. Her strengths include JavaScript, HTML, CSS, performance debugging, component testing, and clear UI state management."
+          },
+          "relevance": 3
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Liam Garcia",
+            "skills": ["React", "JavaScript", "CSS", "HTML", "REST API"],
+            "experience_years": 4,
+            "job_titles": ["Software Engineer"],
+            "degrees": ["B.E Information Technology"],
+            "resume_text": "Liam Garcia has 4 years of experience building customer portals with React, JavaScript, HTML, CSS, and REST API integration. He implements forms, search filters, and reusable components, and he understands responsive design. Liam has less TypeScript and formal testing depth than the ideal profile, but he is a capable frontend contributor for recruiter-facing screens and dashboard work."
+          },
+          "relevance": 2
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Amara Jones",
+            "skills": ["JavaScript", "TypeScript", "React", "Node.js", "MongoDB"],
+            "experience_years": 6,
+            "job_titles": ["Full Stack Engineer", "Software Engineer"],
+            "degrees": ["B.Tech Computer Science"],
+            "resume_text": "Amara Jones is a full stack engineer with 6 years of JavaScript, TypeScript, React, Node.js, and MongoDB experience. She has implemented admin panels, API integrations, and reusable UI modules. Amara is comfortable across the stack and can deliver frontend features, although her recent work has been split between backend services and UI delivery rather than dedicated accessibility and design-system ownership."
+          },
+          "relevance": 2
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Marcus Reed",
+            "skills": ["Python", "FastAPI", "PostgreSQL", "Docker"],
+            "experience_years": 5,
+            "job_titles": ["Backend Developer"],
+            "degrees": ["B.Sc. Software Engineering"],
+            "resume_text": "Marcus Reed is a backend developer with 5 years of Python, FastAPI, PostgreSQL, and Docker experience. He builds APIs, database migrations, and background services. Marcus occasionally fixes HTML templates and simple JavaScript issues, but he does not specialize in React, TypeScript, CSS architecture, accessibility, or component testing. His background is adjacent but not a strong frontend match."
+          },
+          "relevance": 1
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Priya Nair",
+            "skills": ["Recruitment", "Communication", "Onboarding", "Leadership"],
+            "experience_years": 6,
+            "job_titles": ["HR Specialist"],
+            "degrees": ["MBA"],
+            "resume_text": "Priya Nair is an HR specialist with 6 years of recruitment coordination, onboarding, employee communication, and leadership support. She has helped recruiters improve candidate scheduling and hiring process documentation. Priya has no React, JavaScript, TypeScript, HTML, CSS, or software engineering experience, so she is not relevant for the frontend engineering opening."
+          },
+          "relevance": 0
+        }
+      ],
+      "copilot_queries": [
+        {
+          "query": "Who is best for React and TypeScript frontend dashboards?",
+          "expected_candidate_names": ["Sophia Lee"]
+        }
+      ]
+    },
+    {
+      "id": "case_004",
+      "job_description": "Our infrastructure team needs a DevOps engineer with 5+ years supporting cloud-native applications. The role requires AWS, Docker, Kubernetes, Terraform, Linux, CI/CD pipelines, monitoring, incident response, and secure release automation. This engineer will improve deployment reliability, manage infrastructure as code, tune container workloads, support production debugging, and partner with backend teams on scalable environments for AI resume processing.",
+      "candidates": [
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Peter Novak",
+            "skills": ["AWS", "Docker", "Kubernetes", "Terraform", "Linux"],
+            "experience_years": 7,
+            "job_titles": ["DevOps Engineer", "Cloud Engineer"],
+            "degrees": ["B.Tech Computer Engineering"],
+            "resume_text": "Peter Novak is a DevOps engineer with 7 years of cloud infrastructure experience. He manages AWS environments, Docker images, Kubernetes clusters, Terraform modules, Linux servers, CI/CD pipelines, and monitoring systems. Peter has led incident response, improved release automation, and partnered with backend teams to scale containerized services. His recent project standardized infrastructure as code and reduced deployment failures across several production applications."
+          },
+          "relevance": 3
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Rina Shah",
+            "skills": ["AWS", "Docker", "Linux", "Terraform", "Jenkins"],
+            "experience_years": 5,
+            "job_titles": ["Cloud Engineer"],
+            "degrees": ["B.E Computer Science"],
+            "resume_text": "Rina Shah is a cloud engineer with 5 years of AWS, Docker, Linux, Terraform, and Jenkins experience. She builds CI/CD workflows, automates server provisioning, and monitors application health. Rina has basic Kubernetes exposure but has not owned large clusters independently. She is a strong partial fit for infrastructure automation, release reliability, and operational collaboration with backend teams."
+          },
+          "relevance": 2
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Tom Evans",
+            "skills": ["Kubernetes", "Docker", "GCP", "Linux", "Python"],
+            "experience_years": 4,
+            "job_titles": ["DevOps Engineer"],
+            "degrees": ["B.Sc. Information Technology"],
+            "resume_text": "Tom Evans has 4 years of DevOps experience with Kubernetes, Docker, GCP, Linux, and Python automation. He supports container deployments, writes operational scripts, and troubleshoots production incidents. Tom is capable in cloud-native operations but has limited Terraform and AWS depth, and his total experience is slightly below the requested seniority."
+          },
+          "relevance": 2
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Nina Park",
+            "skills": ["Python", "FastAPI", "PostgreSQL", "Redis"],
+            "experience_years": 6,
+            "job_titles": ["Backend Developer"],
+            "degrees": ["B.Tech Information Technology"],
+            "resume_text": "Nina Park is a backend developer with 6 years of Python, FastAPI, PostgreSQL, and Redis experience. She understands Docker-based local development and works with CI pipelines as a consumer. Nina can collaborate with DevOps teams and debug service behavior, but she has not owned AWS infrastructure, Terraform modules, Kubernetes operations, or release automation strategy."
+          },
+          "relevance": 1
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Grace Allen",
+            "skills": ["React", "TypeScript", "CSS", "HTML"],
+            "experience_years": 5,
+            "job_titles": ["Frontend Engineer"],
+            "degrees": ["B.Sc. Computer Science"],
+            "resume_text": "Grace Allen is a frontend engineer focused on React, TypeScript, CSS, and HTML. She creates component libraries, customer dashboards, and accessible UI states. Grace has no meaningful AWS, Terraform, Kubernetes, Linux administration, CI/CD ownership, or incident response experience. Her skills are valuable for product interfaces but not aligned to this DevOps infrastructure role."
+          },
+          "relevance": 0
+        }
+      ],
+      "copilot_queries": [
+        {
+          "query": "Who is strongest for Kubernetes Terraform and AWS operations?",
+          "expected_candidate_names": ["Peter Novak"]
+        }
+      ]
+    },
+    {
+      "id": "case_005",
+      "job_description": "We are looking for a product manager to own recruiter workflow improvements for an AI ATS. The role requires 5+ years in product management, stakeholder management, roadmap planning, metrics analysis, customer discovery, agile delivery, and clear communication with engineering and design. This person will define candidate screening experiences, prioritize backlog tradeoffs, measure funnel outcomes, coordinate releases, and translate recruiter pain points into valuable product increments.",
+      "candidates": [
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Victor Huang",
+            "skills": ["Project Management", "Stakeholder Management", "Leadership", "Communication", "Agile"],
+            "experience_years": 8,
+            "job_titles": ["Product Manager", "Senior Product Manager"],
+            "degrees": ["MBA"],
+            "resume_text": "Victor Huang is a senior product manager with 8 years of experience improving B2B workflow products. He leads roadmap planning, stakeholder management, agile delivery, customer discovery, release coordination, and funnel metrics analysis. Victor has owned recruiter-facing candidate review workflows, interviewed hiring teams, and translated pain points into prioritized product increments. He communicates clearly with engineering and design and uses data to measure adoption, conversion, and operational efficiency."
+          },
+          "relevance": 3
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Hannah Brooks",
+            "skills": ["Project Management", "Stakeholder Management", "Communication", "Power BI"],
+            "experience_years": 6,
+            "job_titles": ["Product Manager"],
+            "degrees": ["B.Sc. Information Systems"],
+            "resume_text": "Hannah Brooks is a product manager with 6 years of experience delivering internal operations tools. She manages backlogs, writes requirements, runs stakeholder meetings, and reviews Power BI dashboards to understand funnel outcomes. Hannah has partnered with engineering on agile releases and customer discovery, though she has limited direct AI ATS exposure. She is a strong fit for recruiter workflow improvements and metrics-driven prioritization."
+          },
+          "relevance": 2
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Ian Foster",
+            "skills": ["Communication", "Leadership", "Recruitment", "Stakeholder Management"],
+            "experience_years": 7,
+            "job_titles": ["Recruiting Operations Manager"],
+            "degrees": ["MBA"],
+            "resume_text": "Ian Foster is a recruiting operations manager with 7 years of experience improving hiring processes, candidate screening workflows, stakeholder communication, and recruiter training. He knows ATS pain points deeply and can describe process gaps clearly. Ian has not formally owned a product roadmap or managed engineering delivery, but his domain knowledge would help shape recruiter workflow discovery and requirements."
+          },
+          "relevance": 2
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Nina Park",
+            "skills": ["Python", "FastAPI", "PostgreSQL", "Docker"],
+            "experience_years": 6,
+            "job_titles": ["Backend Developer"],
+            "degrees": ["B.Tech Information Technology"],
+            "resume_text": "Nina Park is a backend developer who builds Python, FastAPI, PostgreSQL, and Docker services. She collaborates with product managers, estimates engineering work, and explains technical constraints. Nina does not own product discovery, roadmap planning, stakeholder alignment, or funnel metric strategy, so she is only a weak adjacent fit for this product management role."
+          },
+          "relevance": 1
+        },
+        {
+          "candidate_id": null,
+          "synthetic_profile": {
+            "candidate_name": "Grace Allen",
+            "skills": ["React", "TypeScript", "CSS", "HTML"],
+            "experience_years": 5,
+            "job_titles": ["Frontend Engineer"],
+            "degrees": ["B.Sc. Computer Science"],
+            "resume_text": "Grace Allen is a frontend engineer focused on React, TypeScript, HTML, and CSS. She delivers UI components and dashboard screens but does not own roadmap planning, customer discovery, stakeholder management, product metrics, or agile prioritization. Her profile is useful for implementation work but not aligned with the senior product manager responsibilities."
+          },
+          "relevance": 0
+        }
+      ],
+      "copilot_queries": [
+        {
+          "query": "Who has the strongest product management and stakeholder background?",
+          "expected_candidate_names": ["Victor Huang"]
+        }
+      ]
+    }
+  ],
+  "extraction_cases": [
+    {
+      "id": "ext_001",
+      "resume_text": "Jordan Smith\njordan.smith@email.com\nProfessional Summary\nData Scientist and ML Engineer with 4 years of experience building predictive models for product analytics and customer retention.\nSkills\nPython, TensorFlow, SQL, pandas, and machine learning workflows.\nExperience\nData Scientist at BrightMetrics from 2021 to 2024, built churn models, evaluated model quality, and presented findings to product leaders. ML Engineer at InsightLab from 2020 to 2021, created model pipelines and SQL feature datasets.\nEducation\nM.Sc. Data Science, Northeastern University.\nCertifications\nTensorFlow developer certificate.",
+      "expected": {
+        "candidate_name": "Jordan Smith",
+        "email": "jordan.smith@email.com",
+        "skills": ["Python", "TensorFlow", "SQL"],
+        "experience_years": 4,
+        "degrees": ["M.Sc. Data Science"],
+        "job_titles": ["Data Scientist", "ML Engineer"]
+      }
+    },
+    {
+      "id": "ext_002",
+      "resume_text": "Alice Chen\nalice.chen@email.com\nSummary\nSenior Backend Engineer with 7 years of experience designing APIs for recruiting SaaS products.\nTechnical Skills\nPython, FastAPI, PostgreSQL, Docker, Redis, REST API, Linux.\nExperience\nSenior Backend Engineer at HireFlow for 4 years, owned FastAPI services, PostgreSQL schema design, Redis caching, Docker deployments, and production monitoring. Software Engineer at CloudDesk for 3 years, built Python APIs and integration tests.\nEducation\nB.Sc. Computer Science, University of Washington.",
+      "expected": {
+        "candidate_name": "Alice Chen",
+        "email": "alice.chen@email.com",
+        "skills": ["Python", "FastAPI", "PostgreSQL", "Docker", "Redis"],
+        "experience_years": 7,
+        "degrees": ["B.Sc. Computer Science"],
+        "job_titles": ["Senior Backend Engineer", "Software Engineer"]
+      }
+    },
+    {
+      "id": "ext_003",
+      "resume_text": "Sophia Lee\nsophia.lee@email.com\nProfile\nFrontend Engineer with 5 years of experience building accessible recruiter dashboards and responsive workflow screens.\nSkills\nReact, TypeScript, JavaScript, HTML, CSS, REST API.\nExperience\nFrontend Engineer at TalentBoard for 5 years, delivered React components, TypeScript state management, CSS layouts, API integrations, component tests, and performance improvements for candidate review tools.\nEducation\nBachelor of Science in Computer Science, San Jose State University.",
+      "expected": {
+        "candidate_name": "Sophia Lee",
+        "email": "sophia.lee@email.com",
+        "skills": ["React", "TypeScript", "JavaScript", "HTML", "CSS"],
+        "experience_years": 5,
+        "degrees": ["Bachelor of Science"],
+        "job_titles": ["Frontend Engineer"]
+      }
+    },
+    {
+      "id": "ext_004",
+      "resume_text": "Peter Novak\npeter.novak@email.com\nProfessional Summary\nDevOps Engineer and Cloud Engineer with 7 years of experience supporting production infrastructure for SaaS teams.\nCore Competencies\nAWS, Docker, Kubernetes, Terraform, Linux, CI/CD, monitoring, incident response.\nExperience\nDevOps Engineer at ScaleWorks for 5 years, managed AWS clusters, Kubernetes workloads, Docker images, Terraform modules, and Linux automation. Cloud Engineer at NetOps for 2 years, supported CI/CD pipelines and release reliability.\nEducation\nB.Tech Computer Engineering, Pune University.",
+      "expected": {
+        "candidate_name": "Peter Novak",
+        "email": "peter.novak@email.com",
+        "skills": ["AWS", "Docker", "Kubernetes", "Terraform", "Linux"],
+        "experience_years": 7,
+        "degrees": ["B.Tech"],
+        "job_titles": ["DevOps Engineer", "Cloud Engineer"]
+      }
+    },
+    {
+      "id": "ext_005",
+      "resume_text": "Priya Nair\npriya.nair@email.com\nSummary\nHR Specialist and Talent Acquisition Specialist with 6 years of experience improving hiring operations, onboarding, employee relations, recruitment coordination, and communication with hiring managers.\nSkills\nRecruitment, Talent Acquisition, Employee Relations, Onboarding, Communication, Leadership.\nExperience\nHR Specialist at PeopleFirst for 4 years, managed candidate communication, onboarding programs, and employee relations documentation. Talent Acquisition Specialist at MarketHire for 2 years, coordinated interviews and recruiter reporting.\nEducation\nMBA in Human Resources, Mumbai University.",
+      "expected": {
+        "candidate_name": "Priya Nair",
+        "email": "priya.nair@email.com",
+        "skills": ["Recruitment", "Talent Acquisition", "Employee Relations", "Onboarding"],
+        "experience_years": 6,
+        "degrees": ["MBA"],
+        "job_titles": ["HR Specialist", "Talent Acquisition Specialist"]
+      }
+    }
+  ]
+}

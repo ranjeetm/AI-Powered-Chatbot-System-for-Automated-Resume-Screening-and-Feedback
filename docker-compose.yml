@@ -1,0 +1,59 @@
+services:
+
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: ats_postgres
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ats_db
+
+    ports:
+      - "5433:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    restart: always
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+
+    container_name: ats_backend
+
+    ports:
+      - "8001:8000"
+
+    depends_on:
+      - postgres
+
+    env_file:
+      - backend/.env
+
+    volumes:
+      - .:/app
+
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+
+    container_name: ats_frontend
+
+    ports:
+      - "3001:3000"
+
+    depends_on:
+      - backend
+
+    env_file:
+      - frontend/.env.local
+
+    restart: always
+
+volumes:
+  postgres_data:

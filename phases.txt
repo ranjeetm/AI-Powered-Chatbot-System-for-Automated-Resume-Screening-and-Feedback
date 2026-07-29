@@ -1,0 +1,575 @@
+# AI Resume Screening System — Recommended Next Steps
+
+## Current Project Status
+
+You currently have a strong ATS MVP with:
+
+* Next.js recruiter dashboard frontend
+* FastAPI backend APIs
+* PostgreSQL + pgvector
+* OCR-based resume ingestion
+* Structured resume parsing
+* SentenceTransformer embeddings
+* Semantic candidate ranking
+* Weighted recruiter scoring
+* Candidate detail modal
+* Resume download endpoint
+* LLM enrichment pipeline using OpenRouter fallback routing
+* Dockerized architecture
+* Skill normalization + recruiter summaries
+* End-to-end frontend/backend integration
+
+Your project is now beyond MVP stage.
+The next phase should focus on:
+
+1. Production architecture
+2. Stability
+3. Scalability
+4. Recruiter usability
+5. Deployment
+6. Enterprise-grade features
+
+---
+
+# Recommended Next Step Order
+
+## Phase 1 — Backend Production Hardening (Highest Priority)
+
+This should be your immediate next step.
+
+---
+
+## 1. Centralize Configuration Management
+
+### Goal
+
+Move all secrets/configs into environment variables.
+
+### Create
+
+```bash
+backend/.env
+frontend/.env.local
+```
+
+### Backend Variables
+
+```env
+DATABASE_URL=
+OPENROUTER_API_KEY=
+EMBEDDING_MODEL=
+SECRET_KEY=
+CORS_ORIGINS=
+```
+
+### Frontend Variables
+
+```env
+NEXT_PUBLIC_API_URL=
+```
+
+### Install
+
+```bash
+pip install python-dotenv
+```
+
+### Create
+
+```bash
+backend/core/config.py
+```
+
+### Why This Matters
+
+* Production-safe
+* Easier deployment
+* Cleaner architecture
+* Environment separation
+
+---
+
+## 2. Add Alembic Database Migrations
+
+### Goal
+
+Manage PostgreSQL schema professionally.
+
+### Install
+
+```bash
+pip install alembic
+```
+
+### Initialize
+
+```bash
+alembic init alembic
+```
+
+### Configure
+
+* Link SQLAlchemy models
+* Connect DATABASE_URL
+* Create migration scripts
+
+### Benefits
+
+* Version-controlled DB schema
+* Safe production updates
+* Easier collaboration
+
+---
+
+## 3. Refactor Into Layered Backend Architecture
+
+Your backend is growing.
+Now separate logic properly.
+
+## Recommended Structure
+
+```text
+backend/
+│
+├── api/
+├── core/
+├── db/
+├── models/
+├── schemas/
+├── services/
+├── repositories/
+├── utils/
+├── ranking/
+├── embeddings/
+├── llm/
+└── ingestion/
+```
+
+### Key Separation
+
+| Layer        | Responsibility      |
+| ------------ | ------------------- |
+| API          | Routes only         |
+| Services     | Business logic      |
+| Repositories | DB queries          |
+| Schemas      | Pydantic validation |
+| Models       | SQLAlchemy tables   |
+| Utils        | Shared helpers      |
+
+---
+
+# Phase 2 — Authentication & Recruiter Accounts
+
+This is your next major milestone.
+
+---
+
+## 4. Add Authentication
+
+### Recommended
+
+Use:
+
+* Supabase Auth
+  OR
+* JWT Authentication
+
+### Features
+
+* Recruiter login
+* Protected dashboards
+* Session handling
+* Multi-user support
+
+### Why Important
+
+Without auth:
+
+* Anyone can access uploads
+* No recruiter isolation
+* No enterprise readiness
+
+---
+
+## 5. Recruiter-Specific Data Isolation
+
+### Add
+
+```text
+users
+jobs
+recruiter_projects
+candidate_shortlists
+```
+
+### Connect
+
+Each recruiter should only see:
+
+* Their uploaded jobs
+* Their ranked candidates
+* Their shortlists
+
+---
+
+# Phase 3 — Job Description Intelligence
+
+This becomes your biggest ATS differentiator.
+
+---
+
+## 6. Build Job Description Parser
+
+### Input
+
+Recruiter pastes JD.
+
+### Extract
+
+* Skills
+* Experience
+* Education
+* Tools
+* Seniority
+* Domain
+
+### Output
+
+Structured job profile.
+
+---
+
+## 7. Semantic JD ↔ Resume Matching
+
+Currently:
+
+* Resume embeddings exist
+
+Next:
+
+* Generate JD embeddings
+* Compare JD vs candidates
+* Produce recruiter-fit scores
+
+### Features
+
+* Skill overlap
+* Semantic relevance
+* Experience alignment
+* Missing skill detection
+
+---
+
+## 8. Explainable AI Match Insights
+
+This is VERY important.
+
+### Add
+
+Recruiter explanations like:
+
+* Strong Python + FastAPI alignment
+* Lacks AWS experience
+* Good semantic similarity to backend role
+* 5 years experience matches requirement
+
+### Why This Matters
+
+Enterprise ATS systems need explainability.
+
+---
+
+# Phase 4 — Advanced Search & Retrieval
+
+---
+
+## 9. Natural Language Candidate Search
+
+### Example Queries
+
+* “Python backend engineers with Docker experience”
+* “Frontend React developers with 3+ years”
+* “Candidates with NLP background”
+
+### Use
+
+* pgvector
+* Hybrid search
+* Metadata filters
+
+---
+
+## 10. Advanced Filtering
+
+Add:
+
+* Experience filters
+* Skill filters
+* Education filters
+* Certification filters
+* Location filters
+* Score thresholds
+
+---
+
+# Phase 5 — Frontend Improvements
+
+---
+
+## 11. Improve Recruiter Dashboard UX
+
+### Add
+
+* Loading states
+* Toast notifications
+* Empty states
+* Pagination
+* Sorting
+* Better tables
+* Search bar
+* Resume preview panel
+
+---
+
+## 12. Candidate Analytics
+
+### Add Charts
+
+* Skill distribution
+* Top skills
+* Candidate score distribution
+* Experience breakdown
+* Hiring funnel stats
+
+---
+
+# Phase 6 — Async & Scalability
+
+---
+
+## 13. Background Task Queue
+
+Resume ingestion will become slow at scale.
+
+### Add
+
+* Celery
+  OR
+* RQ
+  OR
+* FastAPI BackgroundTasks initially
+
+### Tasks
+
+* OCR
+* Embeddings
+* LLM enrichment
+* Batch ingestion
+
+---
+
+## 14. Redis Caching
+
+### Use For
+
+* Embedding caching
+* API caching
+* Session management
+* Queue backend
+
+---
+
+# Phase 7 — Production Deployment
+
+This should happen after authentication.
+
+---
+
+## 15. Deployment Architecture
+
+## Recommended Stack
+
+| Component       | Platform            |
+| --------------- | ------------------- |
+| Frontend        | Vercel              |
+| Backend         | Railway / Render    |
+| Database        | Supabase PostgreSQL |
+| File Storage    | Supabase Storage    |
+| Background Jobs | Railway Worker      |
+| Monitoring      | Sentry              |
+
+---
+
+## 16. Docker Compose Production Setup
+
+### Add
+
+```text
+frontend
+backend
+postgres
+redis
+worker
+nginx
+```
+
+### Benefits
+
+* Full local production simulation
+* Easier deployment
+* Scalable architecture
+
+---
+
+# Phase 8 — Enterprise-Level Features
+
+These become portfolio differentiators.
+
+---
+
+## 17. Resume Duplicate Detection
+
+Prevent duplicate uploads.
+
+Use:
+
+* Hashing
+* Semantic similarity
+
+---
+
+## 18. Candidate Shortlisting
+
+Allow recruiters to:
+
+* Save candidates
+* Add notes
+* Mark statuses
+* Export shortlist
+
+---
+
+## 19. Export Reports
+
+Generate:
+
+* PDF reports
+* CSV exports
+* Candidate summaries
+
+---
+
+## 20. Interview Recommendation System
+
+Future AI enhancement:
+
+* Recommend interview questions
+* Generate skill gap analysis
+* Predict candidate suitability
+
+---
+
+# Immediate Recommended Action (Your Actual Next Step)
+
+Do these NOW in order:
+
+## Priority Order
+
+### 1. Environment Config System
+
+Create:
+
+```text
+backend/core/config.py
+.env
+```
+
+---
+
+### 2. Alembic Migrations
+
+Professional DB management.
+
+---
+
+### 3. Backend Refactor
+
+Move logic into:
+
+```text
+services/
+repositories/
+schemas/
+```
+
+---
+
+### 4. Authentication
+
+Add recruiter login.
+
+---
+
+### 5. JD Parsing + Matching
+
+This becomes your strongest ATS feature.
+
+---
+
+# Best Strategic Direction
+
+Your project is now strong enough to evolve into:
+
+* SaaS ATS platform
+* AI hiring assistant
+* Recruiter intelligence system
+* Enterprise candidate ranking engine
+
+The most valuable next differentiator is:
+
+## “Explainable AI recruitment intelligence”
+
+Meaning:
+
+Not just ranking candidates.
+
+But explaining:
+
+* WHY candidates rank highly
+* WHICH skills matter most
+* WHAT gaps exist
+* HOW candidates compare semantically
+
+That moves your system from:
+
+"Resume filter"
+
+to
+
+"AI recruiter assistant"
+
+which is much more valuable technically and commercially.
+
+---
+
+# Recommended Immediate Sprint
+
+## Sprint Goal (Next 3–5 Days)
+
+### Build:
+
+* Config management
+* Alembic setup
+* Backend refactor
+* JWT/Supabase authentication
+
+After that:
+
+## Sprint 2
+
+* JD parser
+* JD embeddings
+* Candidate ↔ JD matching
+* Explainable recruiter insights
+
+That is the ideal next direction for your current project maturity level.

@@ -1,4 +1,4 @@
-from sentence_transformers import SentenceTransformer
+from backend.embeddings.embedding_engine import EmbeddingEngine
 
 from backend.db.database import SessionLocal
 
@@ -14,7 +14,7 @@ class CandidateRankingService:
 
     def __init__(self):
 
-        self.model = SentenceTransformer("all-MiniLM-L6-v2")
+        self.embedding_engine = EmbeddingEngine()
 
         self.db = SessionLocal()
 
@@ -30,7 +30,7 @@ class CandidateRankingService:
         # EMBEDDING
         # --------------------------------
 
-        query_embedding = self.model.encode(job_description).tolist()
+        query_embedding = self.embedding_engine.generate_embedding(job_description).tolist()
 
         # --------------------------------
         # VECTOR SEARCH

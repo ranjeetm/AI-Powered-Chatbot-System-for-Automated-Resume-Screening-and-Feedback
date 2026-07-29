@@ -1,7 +1,7 @@
 import os
 import logging
 
-from sentence_transformers import SentenceTransformer
+from backend.embeddings.embedding_engine import EmbeddingEngine
 
 from backend.db.database import SessionLocal
 
@@ -21,10 +21,10 @@ class ResumeIngestionService:
     def __init__(self):
 
         # --------------------------------
-        # EMBEDDING MODEL
+        # EMBEDDING ENGINE
         # --------------------------------
 
-        self.model = SentenceTransformer("all-MiniLM-L6-v2")
+        self.embedding_engine = EmbeddingEngine()
 
         # --------------------------------
         # STRUCTURED PARSER
@@ -95,7 +95,7 @@ class ResumeIngestionService:
 
             logger.info("Starting embedding generation file_name=%s", file_name)
 
-            embedding = self.model.encode(resume_data["text"])
+            embedding = self.embedding_engine.generate_embedding(resume_data["text"])
 
             logger.info(
                 "Completed embedding generation file_name=%s dimensions=%s",

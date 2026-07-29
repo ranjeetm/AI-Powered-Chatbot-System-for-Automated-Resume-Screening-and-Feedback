@@ -10,7 +10,8 @@ from fastapi import (
     File,
     Form,
     HTTPException,
-    Depends
+    Depends,
+    BackgroundTasks,
 )
 from sqlalchemy.orm import Session
 
@@ -26,7 +27,8 @@ from backend.db.models import JobPosting
 from backend.db.session import get_db
 
 from backend.tasks.resume_tasks import (
-    process_resume_task
+    process_resume_task,
+    process_resume_background,
 )
 
 
@@ -104,6 +106,8 @@ async def upload_resume(
 
     file: UploadFile = File(...),
 
+    background_tasks: BackgroundTasks = BackgroundTasks(),
+
     current_user = Depends(
         get_current_user
     )
@@ -132,7 +136,8 @@ async def upload_resume(
 
     try:
 
-        process_resume_task.delay(
+        background_tasks.add_task(
+            process_resume_background,
             str(file_path),
             "uploaded"
         )
@@ -173,6 +178,8 @@ async def candidate_apply(
     job_id: int = Form(...),
 
     file: UploadFile = File(...),
+
+    background_tasks: BackgroundTasks = BackgroundTasks(),
 
     db: Session = Depends(
         get_db
@@ -222,15 +229,14 @@ async def candidate_apply(
 
     try:
 
-        process_resume_task.apply_async(
-            kwargs={
-                "file_path": str(file_path),
-                "category": "candidate_application",
-                "metadata_overrides": {
+        background_tasks.add_task(
+            process_resume_background,
+            file_path=str(file_path),
+            category="candidate_application",
+            metadata_overrides={
                 "candidate_name": candidate_name,
                 "email": candidate_email,
-                "category": job.title
-                }
+                "category": job.title,
             }
         )
 

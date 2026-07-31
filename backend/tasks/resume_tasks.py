@@ -1,7 +1,6 @@
 import logging
 
 from backend.core.celery_app import celery_app
-from backend.db.initializer import initialize_database
 from backend.services.resume_ingestion_service import ResumeIngestionService
 
 
@@ -30,8 +29,6 @@ def process_resume_task(
     service = None
 
     try:
-        initialize_database()
-
         service = ResumeIngestionService()
 
         candidate = service.process_resume(
@@ -90,8 +87,6 @@ def process_resume_background(
     service = None
 
     try:
-        initialize_database()
-
         service = ResumeIngestionService()
 
         candidate = service.process_resume(

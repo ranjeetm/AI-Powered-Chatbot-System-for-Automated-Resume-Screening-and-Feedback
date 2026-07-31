@@ -15,7 +15,7 @@ class EmbeddingEngine:
 
         self.api_url = os.getenv(
             "HF_API_URL",
-            "https://router.huggingface.co/hf-inference/models/sentence-transformers/all-MiniLM-L6-v2"
+            "https://router.huggingface.co/hf-inference/models/sentence-transformers/all-MiniLM-L6-v2/pipeline/feature-extraction"
         )
 
         self.hf_token = os.getenv("HF_TOKEN")

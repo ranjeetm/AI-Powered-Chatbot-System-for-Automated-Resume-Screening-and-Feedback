@@ -13,7 +13,10 @@ class EmbeddingEngine:
 
         self.use_api = os.getenv("USE_HF_INFERENCE_API", "true").lower() == "true"
 
-        self.api_url = "https://api-inference.huggingface.co/models/sentence-transformers/all-MiniLM-L6-v2"
+        self.api_url = os.getenv(
+            "HF_API_URL",
+            "https://router.huggingface.co/hf-inference/models/sentence-transformers/all-MiniLM-L6-v2"
+        )
 
         self.hf_token = os.getenv("HF_TOKEN")
 
@@ -22,6 +25,13 @@ class EmbeddingEngine:
         if self.hf_token:
 
             self.headers["Authorization"] = f"Bearer {self.hf_token}"
+        else:
+            logger.warning(
+                "HF_TOKEN environment variable is not set! Because Hugging Face has retired "
+                "unauthenticated endpoints, calls to the serverless Inference API will fail. "
+                "Please generate a free token at https://huggingface.co/settings/tokens and "
+                "set it as HF_TOKEN in your environment variables."
+            )
 
         self.model = None
 
@@ -75,11 +85,17 @@ class EmbeddingEngine:
 
                             return np.array(emb)
 
-                logger.error(
-                    "HF Inference API call failed: %s - %s",
-                    response.status_code,
-                    response.text,
-                )
+                if response.status_code == 401:
+                    logger.error(
+                        "HF Inference API call returned 401 Unauthorized. "
+                        "Please verify that your HF_TOKEN is correctly set in your environment variables."
+                    )
+                else:
+                    logger.error(
+                        "HF Inference API call failed: %s - %s",
+                        response.status_code,
+                        response.text,
+                    )
 
             except Exception as e:
 

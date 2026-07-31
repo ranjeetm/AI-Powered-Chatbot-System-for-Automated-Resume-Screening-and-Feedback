@@ -24,13 +24,13 @@ client = (
 
 MODELS = [
     # Fast + reliable
-    "openai/gpt-oss-20b:free",
+    "meta-llama/llama-3-8b-instruct:free",
     # Better quality
-    "openai/gpt-oss-120b:free",
+    "mistralai/mistral-7b-instruct:free",
     # Balanced fallback
-    "z-ai/glm-4.5-air:free",
+    "google/gemma-2-9b-it:free",
     # Final fallback
-    "nvidia/nemotron-3-super-120b-a12b:free",
+    "openrouter/free",
 ]
 
 # --------------------------------

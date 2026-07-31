@@ -3439,6 +3439,10 @@ function RecruiterRank({
     setJobDescriptions
   ] = useState<JobDescription[]>([])
   const [
+    jobs,
+    setJobs
+  ] = useState<JobPosting[]>([])
+  const [
     selectedJdId,
     setSelectedJdId
   ] = useState("")
@@ -3487,6 +3491,10 @@ function RecruiterRank({
     (item) => String(item.id) === selectedJdId
   )
 
+  const selectedJob = jobs.find(
+    (item) => `job-${item.id}` === selectedJdId
+  )
+
   function updateCandidateShortlist(
     candidateId: number,
     isShortlisted: boolean
@@ -3502,13 +3510,22 @@ function RecruiterRank({
 
     try {
 
-      const data = await getJobDescriptions()
+      const [jdData, jobData] = await Promise.all([
+        getJobDescriptions(),
+        getJobs()
+      ])
 
-      setJobDescriptions(data)
+      setJobDescriptions(jdData)
+      setJobs(jobData)
 
-      if (!selectedJdId && data[0]) {
-
-        setSelectedJdId(String(data[0].id))
+      // Auto-select first job posting if nothing is selected
+      if (!selectedJdId && jobData[0]) {
+        const firstJobId = `job-${jobData[0].id}`
+        setSelectedJdId(firstJobId)
+        setJd(jobData[0].description)
+        setJdTitle(jobData[0].title)
+      } else if (!selectedJdId && jdData[0]) {
+        setSelectedJdId(String(jdData[0].id))
       }
 
     } catch (err) {
@@ -3516,9 +3533,33 @@ function RecruiterRank({
       setError(
         getErrorMessage(
           err,
-          "Failed to load saved job descriptions"
+          "Failed to load job postings"
         )
       )
+    }
+  }
+
+  function handleJdSelect(value: string) {
+    setSelectedJdId(value)
+
+    // If a job posting is selected (prefixed with "job-")
+    if (value.startsWith("job-")) {
+      const jobId = Number(value.replace("job-", ""))
+      const job = jobs.find((j) => j.id === jobId)
+      if (job) {
+        setJd(job.description)
+        setJdTitle(job.title)
+      }
+    } else if (value) {
+      // If a saved JD is selected
+      const savedJd = jobDescriptions.find((j) => String(j.id) === value)
+      if (savedJd) {
+        setJd(savedJd.description)
+        setJdTitle(savedJd.title)
+      }
+    } else {
+      setJd("")
+      setJdTitle("")
     }
   }
 
@@ -3828,20 +3869,36 @@ function RecruiterRank({
               Saved JD
             </FieldLabel>
             <Select
-              onChange={(event) => setSelectedJdId(event.target.value)}
+              onChange={(event) => handleJdSelect(event.target.value)}
               value={selectedJdId}
             >
               <option value="">
-                Select saved JD...
+                Select a job posting...
               </option>
-              {jobDescriptions.map((item) => (
-                <option
-                  key={item.id}
-                  value={item.id}
-                >
-                  {item.title}
-                </option>
-              ))}
+              {jobs.length > 0 && (
+                <optgroup label="Job Postings">
+                  {jobs.map((item) => (
+                    <option
+                      key={`job-${item.id}`}
+                      value={`job-${item.id}`}
+                    >
+                      {item.title}
+                    </option>
+                  ))}
+                </optgroup>
+              )}
+              {jobDescriptions.length > 0 && (
+                <optgroup label="Saved JDs">
+                  {jobDescriptions.map((item) => (
+                    <option
+                      key={`jd-${item.id}`}
+                      value={String(item.id)}
+                    >
+                      {item.title}
+                    </option>
+                  ))}
+                </optgroup>
+              )}
             </Select>
           </div>
 

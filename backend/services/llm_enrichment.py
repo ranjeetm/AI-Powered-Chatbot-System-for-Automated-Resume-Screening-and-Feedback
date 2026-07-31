@@ -23,13 +23,15 @@ client = (
 # --------------------------------
 
 MODELS = [
-    # Fast + reliable
-    "meta-llama/llama-3-8b-instruct:free",
-    # Better quality
-    "mistralai/mistral-7b-instruct:free",
-    # Balanced fallback
-    "google/gemma-2-9b-it:free",
-    # Final fallback
+    # Top tier and fast
+    "google/gemma-4-31b-it:free",
+    # Excellent code/tech reasoning
+    "cohere/north-mini-code:free",
+    # Good general purpose
+    "poolside/laguna-s-2.1:free",
+    # Robust fallback
+    "nvidia/nemotron-3-super-120b-a12b:free",
+    # Catch-all auto router
     "openrouter/free",
 ]
 
@@ -193,18 +195,25 @@ Resume:
             print(f"\nLLM latency: " f"{latency}s")
 
             content = response.choices[0].message.content
+            if not content:
+                raise ValueError("Model returned empty or None content.")
 
             # --------------------------------
-            # CLEAN RESPONSE
+            # CLEAN RESPONSE & EXTRACT JSON
             # --------------------------------
+            content_str = str(content)
+            start_idx = content_str.find("{")
+            end_idx = content_str.rfind("}")
+            if start_idx == -1 or end_idx == -1 or start_idx > end_idx:
+                raise ValueError(f"Could not find valid JSON boundaries in response: {content_str}")
 
-            content = content.replace("```json", "").replace("```", "").strip()
+            json_str = content_str[start_idx:end_idx+1]
 
             # --------------------------------
             # PARSE JSON
             # --------------------------------
 
-            parsed = json.loads(content)
+            parsed = json.loads(json_str)
 
             # --------------------------------
             # CLEAN OUTPUT
